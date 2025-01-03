@@ -11,10 +11,18 @@
 
     h1 {
       text-align: center;
-      margin-bottom: 20px;
-      color: #333;
+      margin: 40px 0px 20px 0px;
+      color: red;
+      font-weight: bold;
+      font-size: 40px;
     }
 
+    .h2 {
+      text-align: center;
+      font-size: 26px;
+      margin-top: 29px;
+      margin-bottom:0px;
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -52,9 +60,15 @@
       text-align: center;
     }
   </style>
+  <!-- -->
+
 </head>
 <body>
-  <h1>Events</h1>
+  <div class="header">
+  <h1>GALGOTIAS UNIVERSITY</h1>
+  <h2 class="h2"> ONGOING EVENTS </h2>
+  </div>
+  <br>
   <ul>
     {% for event in events %}
       <li>
@@ -63,8 +77,7 @@
         <p>Starts on: {{ event.start_date }}</p>
         <p>Ends on: {{ event.end_date }}</p>
         <p>Location: {{ event.location }}</p>
-        <a href="https://t.me/university_event_bot?start={{ event.id }}" class="button">Get Ticket</a>
-        <a href="https://t.me/university_event_bot?start=bookticket {{ event.id }}" class="button">Book Ticket</a>
+        <a href="https://t.me/university_event_bot?start=bookticket {{ event.id }}" class="button">Book Ticket via Telegram</a>
       </li>
     {% empty %}
       <li>No events available.</li>
