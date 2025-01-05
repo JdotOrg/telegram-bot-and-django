@@ -101,8 +101,8 @@ async def generate_ticket(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         event = context.user_data['event']
         user_id = str(update.message.from_user.id)
 
-        # Generate a unique ticket ID
-        ticket_id = str(uuid.uuid4())[:8]
+        # Generate a unique ticket ID (full UUID)
+        ticket_id = str(uuid.uuid4())
 
         # Generate a barcode
         barcode_writer = ImageWriter()
