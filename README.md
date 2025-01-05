@@ -5,7 +5,7 @@ __To use the project you are required to download the code instead of cloning__.
 # Steps to setup
 1. Download [python](https://www.python.org/ftp/python/3.13.1/python-3.13.1-amd64.exe).
 2. Open command prompt, and install required literaries and frameworks.
-3. Enter following prompt to install `pip install pip install django djangorestframework mysql-connector-python numpy pandas python-telegram-bot aiogram telethon python-dotenv`.
+3. Enter following prompt to install `pip install pip install django djangorestframework mysql-connector-python numpy pandas python-telegram-bot aiogram telethon python-dotenv python-barcode`.
 4. Download [MySQL](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.40.0.msi).
 5. Install complete MySQL service which includes both server and clint.
 6. Open command prompt, run `mysql -u root -p` to run MySQL.
@@ -25,7 +25,7 @@ TELEGRAM_BOT_TOKEN="your telegram token"``` make sure to remove double colon ""
 
 # Hosting
 1. After all migration is satisfied to host the server run python `manage.py runserver` inside telegram_event_booking directory.
-2. Open web brower and open http://127.0.0.1:8000/events/ to view events, open http://127.0.0.1:8000/admin/ to open admin menu.
+2. Open web brower and open http://127.0.0.1:8000/ to view events, open http://127.0.0.1:8000/admin/ to open admin menu.
 3. Once the Django webpage is hosting, create a new terminal.
 4. Enter cd `telegram_bot\telegram_event_booking\telegram_bot` to enter telegram_bot where bot.py is located.
 5. Enter `python bot.py` to run the bot.
