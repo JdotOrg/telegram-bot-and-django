@@ -2,13 +2,24 @@
 <html>
 <head>
   <title>Event List</title>
+  <link rel="icon" type="image/jpg" href="https://i.ibb.co/q55nwPx/event.png">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f5f5f5;
+      margin: 10px 20px 20px 0px; 
+      background-color:rgb(255, 255, 255);
     }
-
+    .header {
+      height: 9.2rem;
+      width: 100;
+      display: flex;
+      justify-content: center; /* Center the image horizontally */
+      align-items: center; /* Center the image vertically */
+    }
+    
+    .logo img {
+      height: 9rem;
+    }
     h1 {
       text-align: center;
       margin: 40px 0px 20px 0px;
@@ -65,14 +76,16 @@
 </head>
 <body>
   <div class="header">
-  <h1>GALGOTIAS UNIVERSITY</h1>
-  <h2 class="h2"> ONGOING EVENTS </h2>
+    <div class="logo">
+      <a href="http://127.0.0.1:8000/"><img src="https://i.ibb.co/rxf1k8K/787914e335b020a471e898c1a1564327.jpg" alt="Galgotias Univeristy Logo" title="Galgotias Univeristy" border="0" /></a>
+    </div>
   </div>
-  <br>
+  <h2 class="h2"> ONGOING EVENTS </h2>
+  <hr>
   <ul>
     {% for event in events %}
       <li>
-        <h2>{{ event.name }}</h2>
+        <h2><b>{{ event.name }}</b></h2>
         <p>{{ event.description }}</p>
         <p>Starts on: {{ event.start_date }}</p>
         <p>Ends on: {{ event.end_date }}</p>
