@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'event_booking',
     'telegram_bot',
     "jet",
-    "django.contrib.admin",
 ]
 
 MIDDLEWARE = [
