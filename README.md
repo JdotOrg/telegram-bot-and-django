@@ -5,7 +5,7 @@ __To use the project you are required to download the code instead of cloning__.
 # Steps to setup
 1. Download [python](https://www.python.org/ftp/python/3.13.1/python-3.13.1-amd64.exe).
 2. Open command prompt, and install required literaries and frameworks.
-3. Enter following prompt to install `pip install pip install django djangorestframework mysql-connector-python numpy pandas python-telegram-bot aiogram telethon python-dotenv python-barcode`.
+3. Enter following prompt to install `pip install pip install django djangorestframework mysql-connector-python numpy pandas python-telegram-bot aiogram telethon python-dotenv python-barcode django-jet django-jet-reboot`.
 4. Download [MySQL](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.40.0.msi).
 5. Install complete MySQL service which includes both server and clint.
 6. Open command prompt, run `mysql -u root -p` to run MySQL.
