@@ -1,100 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event List</title>
   <link rel="icon" type="image/jpg" href="https://i.ibb.co/q55nwPx/event.png">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 10px 20px 20px 0px; 
-      background-color:rgb(255, 255, 255);
-    }
-    .header {
-      height: 9.2rem;
-      width: 100;
-      display: flex;
-      justify-content: center; /* Center the image horizontally */
-      align-items: center; /* Center the image vertically */
-    }
-    
-    .logo img {
-      height: 9rem;
-    }
-    h1 {
-      text-align: center;
-      margin: 40px 0px 20px 0px;
-      color: red;
-      font-weight: bold;
-      font-size: 40px;
-    }
-
-    .h2 {
-      text-align: center;
-      font-size: 26px;
-      margin-top: 29px;
-      margin-bottom:0px;
-    }
-    ul {
-      list-style: none;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
       padding: 0;
-    }
-
-    li {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
+      background-color: #f8f9fa;
       color: #333;
     }
 
-    p {
-      margin-top: 0;
-      color: #666;
+    .header {
+      height: 9.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 9rem;
+    }
+
+    h2.h2 {
+      text-align: center;
+      font-size: 26px;
+      margin: 30px 0 10px;
+      color: #007bff;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #ddd;
+      margin: 20px auto;
+      width: 80%;
+    }
+
+    .event-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .event-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .event-thumbnail {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .event-details {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-details h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    .event-details p {
+      margin: 5px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: auto;
     }
 
     .button {
       display: inline-block;
-      padding: 10px 20px;
-      margin-top: 10px;
+      text-align: center;
+      padding: 10px 15px;
       background-color: #007bff;
       color: #fff;
       border-radius: 5px;
       text-decoration: none;
       font-size: 16px;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .no-events {
       text-align: center;
+      font-size: 18px;
+      color: #777;
+      margin-top: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #333;
+      color: #fff;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
     }
   </style>
-  <!-- -->
-
 </head>
 <body>
   <div class="header">
     <div class="logo">
-      <a href="http://127.0.0.1:8000/"><img src="https://i.ibb.co/rxf1k8K/787914e335b020a471e898c1a1564327.jpg" alt="Galgotias Univeristy Logo" title="Galgotias Univeristy" border="0" /></a>
+      <a href="http://127.0.0.1:8000/">
+        <img src="https://i.ibb.co/rxf1k8K/787914e335b020a471e898c1a1564327.jpg" alt="Galgotias University Logo" title="Galgotias University" />
+      </a>
     </div>
   </div>
-  <h2 class="h2"> ONGOING EVENTS </h2>
+
+  <h2 class="h2">ONGOING EVENTS</h2>
   <hr>
-  <ul>
+
+  <div class="event-list">
     {% for event in events %}
-      <li>
-        <h2><b>{{ event.name }}</b></h2>
-        <p>{{ event.description }}</p>
-        <p>Starts on: {{ event.start_date }}</p>
-        <p>Ends on: {{ event.end_date }}</p>
-        <p>Location: {{ event.location }}</p>
-        <a href="https://t.me/university_event_bot?start=bookticket {{ event.id }}" class="button">Book Ticket via Telegram</a>
-      </li>
+      <div class="event-card">
+        {% if event.thumbnail %}
+          <img src="{{ event.thumbnail.url }}" alt="{{ event.name }}" class="event-thumbnail">
+        {% else %}
+          <img src="https://via.placeholder.com/300x180?text=No+Image+Available" alt="No Thumbnail" class="event-thumbnail">
+        {% endif %}
+        <div class="event-details">
+          <h2><b>{{ event.name }}</b></h2>
+          <p>{{ event.description }}</p>
+          <p><strong>Starts on:</strong> {{ event.start_date }}</p>
+          <p><strong>Ends on:</strong> {{ event.end_date }}</p>
+          <p><strong>Location:</strong> {{ event.location }}</p>
+          <div class="button-container">
+            <a href="https://t.me/university_event_bot?start=bookticket {{ event.id }}" class="button">Book Ticket via Telegram</a>
+          </div>
+        </div>
+      </div>
     {% empty %}
-      <li>No events available.</li>
+      <p class="no-events">No events available.</p>
     {% endfor %}
-  </ul>
+  </div>
+
+  <div class="footer">
+    &copy; {{ year }} Galgotias University. All rights reserved. |  <a href="http://127.0.0.1:8000/admin/">Admin Login</a>
+  </div>
 </body>
 </html>
